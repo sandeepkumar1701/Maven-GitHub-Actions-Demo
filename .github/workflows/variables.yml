@@ -1,0 +1,9 @@
+name: GitHub Actions Variables Demo
+run-name: ${{ github.actor }} is testing out GitHub Actions Variables 🚀
+on: [push]
+jobs:
+  Explore-GitHub-Actions-Variables:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Print all environment variables
+        run: printenv
