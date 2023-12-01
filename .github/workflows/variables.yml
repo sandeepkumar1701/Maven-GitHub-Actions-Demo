@@ -1,24 +1,9 @@
 name: GitHub Actions Custom Variables Demo
 run-name: GitHub Actions Custom Variables
 on: [push]
-env:
-  DB_HOST: "mypostgres.com"
-  DB_USERNAME: "postgres"
 jobs:
   job-01:
-    env:
-      IMAGE_NAME: "weather-app"
-      IMAGE_TAG: "2.0"
     runs-on: ubuntu-latest
     steps:
     - name: Print image name
-      run: echo $IMAGE_NAME
-    - name: Print db hostname
-      run: echo $DB_HOST
-  job-02:
-    runs-on: ubuntu-latest
-    steps:
-    - name: Print db hostname
-      run: echo ${{env.DB_HOST}}
-      env:
-        DB_HOST: "localhost"
+      run: python --version
