@@ -1,15 +1,24 @@
-name: GitHub Actions Variables Demo
-run-name: ${{ github.actor }} is testing out GitHub Actions Variables 🚀
+name: GitHub Actions Custom Variables Demo
+run-name: GitHub Actions Custom Variables
 on: [push]
+env:
+  DB_HOST: "mypostgres.com"
+  DB_USERNAME: "postgres"
 jobs:
-  Explore-GitHub-Actions-Variables:
+  job-01:
+    env:
+      IMAGE_NAME: "weather-app"
+      IMAGE_TAG: "2.0"
     runs-on: ubuntu-latest
     steps:
-    - name: Print all environment variables
-      run: printenv
-    - name: Access individual environment variable
-      run: |
-        echo "Name of the workflow ${{ github.workflow }}"
-        echo "Name of the branch ${{ github.ref_name }} "	
-        echo "Event that triggered the workflow ${{ github.event_name }}"
-        echo "User that triggered the workflow ${{ github.actor	}}"
+    - name: Print image name
+      run: echo $IMAGE_NAME
+    - name: Print db hostname
+      run: echo $DB_HOST
+  job-02:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Print db hostname
+      run: echo $DB_HOST
+      env:
+        DB_HOST: "localhost"
