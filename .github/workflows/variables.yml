@@ -5,5 +5,11 @@ jobs:
   Explore-GitHub-Actions-Variables:
     runs-on: ubuntu-latest
     steps:
-      - name: Print all environment variables
-        run: printenv
+    - name: Print all environment variables
+      run: printenv
+    - name: Access individual environment variable
+      run: |
+        echo "Name of the workflow ${{ github.workflow }}"
+        echo "Name of the branch ${{ github.ref_name }} "	
+        echo "Event that triggered the workflow ${{ github.event_name }}"
+        echo "User that triggered the workflow ${{ github.actor	}}"
