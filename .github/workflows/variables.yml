@@ -19,6 +19,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Print db hostname
-      run: echo $DB_HOST
+      run: echo ${{env.DB_HOST}}
       env:
         DB_HOST: "localhost"
