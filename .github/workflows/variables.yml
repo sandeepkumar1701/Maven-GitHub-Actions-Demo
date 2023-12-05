@@ -1,9 +1,0 @@
-name: GitHub Actions Custom Variables Demo
-run-name: GitHub Actions Custom Variables
-on: [push]
-jobs:
-  job-01:
-    runs-on: ubuntu-latest
-    steps:
-    - name: Print image name
-      run: python --version
