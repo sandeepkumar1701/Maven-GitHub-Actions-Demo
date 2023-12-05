@@ -13,9 +13,8 @@ jobs:
         echo "GITHUB_SHA: ${{ github.sha }}"
         echo "GITHUB_REF: ${{ github.ref }}"
         echo "GITHUB_REF_NAME: ${{ github.ref_name }}"
-    - name: Display base_ref and head_ref
-      if: ${{ github.event_name == 'pull_request' && github.event.action == 'opened' }}
+    - name: Parsing client payload message
       run: |
-        echo "This event is a pull request"
-        echo "GITHUB_BASE_REF: ${{ github.base_ref }}"
-        echo "GITHUB_HEAD_REF: ${{ github.head_ref }}"
+        echo $MESSAGE
+      env:
+        MESSAGE: ${{ github.event.client_payload.message }}
