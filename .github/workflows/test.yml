@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - 'main'
+	  - 'master'
   pull_request:
     types: [opened, closed]
 jobs:
@@ -22,3 +23,4 @@ jobs:
         echo "This event is a pull request"
         echo "GITHUB_BASE_REF: ${{ github.base_ref }}"
         echo "GITHUB_HEAD_REF: ${{ github.head_ref }}"
+		
